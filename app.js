@@ -28,7 +28,6 @@ console.log(pokemon[58])
 
 console.log(game)
 console.log(game.party.push(pokemon[58]))
-console.log(game.party)
 
 /*
 Exercise 3
@@ -40,7 +39,6 @@ Solve Exercise 3 here:
 */
 
 game.difficulty = "Hard"
-console.log(game)
 
 /*
 Exercise 4
@@ -54,3 +52,60 @@ Solve Exercise 4 here:
 const starterPokemon = pokemon[0]
 console.log(starterPokemon)
 console.log(game.party.push(starterPokemon))
+console.log(game.party)
+
+/*
+Exercise 5
+1. Choose three more Pokémon from the `pokemon` array and add them to your party.
+2. Consider different attributes like 'type' or 'HP' for your selection. Which array method will you use to add them?
+
+
+Solve Exercise 5 here:
+*/
+for (let i = 1; i <= 3; i++) {
+  game.party.push(pokemon[i])
+}
+console.log(game.party)
+
+/*
+Exercise 6
+1. Set the `completed` property to true for gyms with a difficulty below 3.
+2. Think about how you'd loop through the `gyms` array to check and update the `completed` property.
+
+
+Solve Exercise 6 here:
+*/
+for (let i = 0; i < game.gyms.length; i++) {
+  if (game.gyms[i].difficulty < 3) {
+    game.gyms[i].completed = true
+  }
+}
+console.log(game.gyms)
+
+/*
+Exercise 7
+1. Evolve the starter Pokémon you added to your party earlier. Each starter Pokémon evolves into a specific one.
+2. How would you replace the current starter Pokémon in your party with its evolved form?
+
+Hint: 
+  - Pokemon 1: Bulbasaur evolves into Pokemon 2: Ivysaur
+  - Pokemon 4: Charmander evolves into Pokemon 5: Charmeleon
+  - Pokemon 7: Squirtle evolves into Pokemon 8: Wartortle
+  - Pokemon 25: Pikachu evolves into Pokemon 26: Raichu
+
+More Hints: The existing starter Pokemon will be *replaced* in your party with the Pokemon it evolved into. When working with an array of objects, the splice() array method is ideal for replacing one element with another. 
+
+
+Solve Exercise 7 here:
+*/
+for (let i = 0; i < game.party.length; i++) {
+  if (game.party[i].starter === true) {
+    if (game.party[i].name === "Bulbasaur") {
+      game.party[i].name = "Ivysaur"
+    } else {
+      game.party[i].name = "Charmeleon"
+    }
+  }
+}
+
+console.log(game.party)
