@@ -109,6 +109,7 @@ for (let i = 0; i < game.party.length; i++) {
 }
 
 console.log(game.party)
+<<<<<<< HEAD
 
 /*
 Exercise 8
@@ -182,3 +183,5 @@ game.catchPokemon = function (pokemonObj) {
 
 console.log(game.catchPokemon(pokemon[6]))
 console.log(game.items.quantity)
+=======
+>>>>>>> 86adac5e9dc6ac96a6577166d69517adc3f90b23
