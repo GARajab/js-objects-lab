@@ -50,9 +50,9 @@ Solve Exercise 4 here:
 */
 
 const starterPokemon = pokemon[0]
-console.log(starterPokemon)
-console.log(game.party.push(starterPokemon))
-console.log(game.party)
+// console.log(starterPokemon)
+// console.log(game.party.push(starterPokemon))
+// console.log(game.party)
 
 /*
 Exercise 5
@@ -65,7 +65,7 @@ Solve Exercise 5 here:
 for (let i = 1; i <= 3; i++) {
   game.party.push(pokemon[i])
 }
-console.log(game.party)
+// console.log(game.party)
 
 /*
 Exercise 6
@@ -80,7 +80,7 @@ for (let i = 0; i < game.gyms.length; i++) {
     game.gyms[i].completed = true
   }
 }
-console.log(game.gyms)
+// console.log(game.gyms)
 
 /*
 Exercise 7
@@ -108,8 +108,7 @@ for (let i = 0; i < game.party.length; i++) {
   }
 }
 
-console.log(game.party)
-<<<<<<< HEAD
+// console.log(game.party)
 
 /*
 Exercise 8
@@ -156,8 +155,8 @@ game.catchPokemon = function (pokemonObj) {
   game.party.push(pokemonObj)
 }
 game.catchPokemon(pokemon[5])
-console.log(game)
-console.log(game.party)
+// console.log(game)
+// console.log(game.party)
 
 /*
 Exercise 11
@@ -172,16 +171,122 @@ Also, log the `game.items` array to confirm that the pokeball quantity is being 
 Solve Exercise 11 here:
 */
 
-game.catchPokemon = function (pokemonObj) {
+const catchPokemon = (pokemonObj) => {
   game.party.push(pokemonObj)
   for (let i = 0; i < game.items.length; i++) {
     if (game.items[i].name === "pokeball") {
-      game.items[i].quantity - 1
+      game.items[i].quantity -= 1
     }
   }
 }
 
-console.log(game.catchPokemon(pokemon[6]))
-console.log(game.items.quantity)
-=======
->>>>>>> 86adac5e9dc6ac96a6577166d69517adc3f90b23
+// console.log(game.catchPokemon(pokemon[6]))
+catchPokemon(pokemon[7])
+
+// console.log(game.party)
+
+// console.log(game.items)
+
+// console.log(game.items[1].quantity)
+
+/*
+Exercise 12
+1. Similar to Exercise 6, now complete gyms with a difficulty below 6. How will you approach this?
+ (change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 12 here:
+*/
+
+for (let i = 0; i < game.gyms.length; i++) {
+  if (game.gyms[i].difficulty < 6) {
+    game.gyms[i].completed = true
+  }
+}
+// console.log(game.gyms)
+
+/*
+Exercise 13
+1. Create a `gymStatus` method in `game` to tally completed and incomplete gyms.
+2. How will you iterate through the `gyms` array and update the tally? Remember to log the final tally.
+
+This method should:
+  - Not accept any arguments.
+  - Initially create a constant `gymTally`, which is an object that has two 
+    properties: `completed` and `incomplete`, both of which are initially set to 0.
+  - Iterate through the objects in the `game.gyms` array and update the 
+    properties on `gymTally` as follows: 
+    - `completed` should count how many gyms in the array have a value of `true` 
+      for their `completed` property. 
+    - `incomplete` should count how many gyms in the array have a value of 
+      `false` for their `completed` property.
+  - Log the value of `gymTally`.
+  - The method should not return anything.
+
+For example, if five gym objects have a value of `true` on their `completed` property and three gym objects have a value of `false` on their `completed` property, the logged value would be: `{ completed: 5, incomplete: 3 }`.
+
+Solve Exercise 13 here:
+*/
+
+game.gymStatus = function () {
+  gymTally: [{ completed: 0, incompleted: 0 }]
+}
+game.gymStatus()
+// console.log(game)
+
+for (let i = 0; i < game.gyms; i++) {
+  if (game.gyms[i].completed === true) {
+    game.gymStatus.gymTally.completed += 1
+  } else {
+    game.gymStatus.gymTally.incompleted += 1
+  }
+}
+// console.log(game)
+
+// console.log(game.gameStatus.gymTally)
+
+/*
+Exercise 14
+1. Add a `partyCount` method to `game` that counts the number of Pokémon in your party.
+
+This method should:
+  - Not accept any arguments.
+  - Count the number of Pokemon in the party.
+  - return the found number of Pokemon in the party.
+
+Solve Exercise 14 here:
+*/
+let countPokemons = 0
+game.partyCount = function () {
+  for (let i = 0; i <= game.party.length; i++) {
+    countPokemons += 1
+  }
+  return countPokemons
+}
+game.partyCount()
+// console.log(game.party)
+// console.log(countPokemons)
+
+/*
+Exercise 15
+1. Now, complete gyms with a difficulty below 8. Reflect on how this is similar to or different from the previous gym exercises.
+(change the value of `complete` in the qualifying objects from false to true).
+
+Solve Exercise 15 here:
+*/
+
+for (let i = 0; i < game.gyms.length; i++) {
+  if (game.gyms[i].difficulty < 8) {
+    game.gyms[i].completed = true
+  }
+}
+// console.log(game.gyms)
+
+/*
+Exercise 16
+1. Log the entire `game` object to the console. Take a moment to review the changes you've made throughout the exercises.
+
+
+Solve Exercise 16 here:
+*/
+
+console.log(game)
